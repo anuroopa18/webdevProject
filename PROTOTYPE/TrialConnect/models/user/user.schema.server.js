@@ -1,14 +1,14 @@
 var mongoose = require('mongoose');
 
+var addressSchema = require('./address.schema.server')
+
 var userSchema = mongoose.Schema({
     username: String,
     password: String,
     firstName: String,
     lastName: String,
     email: String,
-    address:{
-        type: mongoose.Schema.ObjectId, ref:'Address'
-    }
+    address:[addressSchema]
 
 },{collection:'user'});
 
