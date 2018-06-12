@@ -7,7 +7,7 @@ var userSchema = mongoose.Schema({
     lastName: String,
     email: String,
     address:{
-        type: mongoose.Schema.ObjectId, ref:'AddressModel'
+        type: mongoose.Schema.ObjectId, ref:'Address'
     }
 
 },{collection:'user'});
