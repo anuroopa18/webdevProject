@@ -1,3 +1,3 @@
 var mongo = require('mongoose');
-
-var sponsorModel = mongo.model('Sponsor');
+var sponsorSchema = require('./sponsor.schema.server');
+var sponsorModel = mongo.model('Sponsor', sponsorSchema);
