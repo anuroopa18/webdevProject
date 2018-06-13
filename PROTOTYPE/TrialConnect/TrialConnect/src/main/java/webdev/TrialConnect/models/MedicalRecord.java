@@ -14,19 +14,19 @@ public class MedicalRecord {
 	private int id;
 	private String gender;
 	private String problems;
-	private List<String> medicine;
-	private List<String> results;
-	private List<Date> visits;
+	private String medicine;
+	private String results;
+	private Date visits;
 	
 
 	@ManyToOne
 	@JsonIgnore
 	private Patient patient;
 	
-	 @OneToMany(mappedBy="medical_record")
+	 @OneToMany(mappedBy="medicalRecord")
 	 private List<Vitals> vitals;
 	 
-	 @OneToMany(mappedBy="medical_record")
+	 @OneToMany(mappedBy="medicalRecord")
 	 private List<Doctor> doctor;
 	 
 	 public List<Doctor> getDoctor() {
@@ -35,10 +35,10 @@ public class MedicalRecord {
 	public void setDoctor(List<Doctor> doctor) {
 		this.doctor = doctor;
 	}
-	@OneToMany(mappedBy="medical_record")
+	@OneToMany(mappedBy="medicalRecord")
 	 private List<Allergy> allergy;
 	 
-	 @OneToMany(mappedBy="medical_record")
+	 @OneToMany(mappedBy="medicalRecord")
 	 private List<Vaccine> vaccine;
 	 
 	 
@@ -78,23 +78,29 @@ public class MedicalRecord {
 	public void setProblems(String problems) {
 		this.problems = problems;
 	}
-	public List<String> getMedicine() {
+	public String getMedicine() {
 		return medicine;
 	}
-	public void setMedicine(List<String> medicine) {
+	public void setMedicine(String medicine) {
 		this.medicine = medicine;
 	}
-	public List<String> getResults() {
+	public String getResults() {
 		return results;
 	}
-	public void setResults(List<String> results) {
+	public void setResults(String results) {
 		this.results = results;
 	}
-	public List<Date> getVisits() {
+	public Date getVisits() {
 		return visits;
 	}
-	public void setVisits(List<Date> visits) {
+	public void setVisits(Date visits) {
 		this.visits = visits;
+	}
+	public Patient getPatient() {
+		return patient;
+	}
+	public void setPatient(Patient patient) {
+		this.patient = patient;
 	}
 	
 	
