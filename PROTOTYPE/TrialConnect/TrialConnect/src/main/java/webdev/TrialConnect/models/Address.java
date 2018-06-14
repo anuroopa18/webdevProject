@@ -19,15 +19,6 @@ public class Address {
             fetch = FetchType.LAZY, optional = false)
     private Patient patient;
 	
-	@OneToOne(mappedBy = "address", cascade = CascadeType.ALL, 
-            fetch = FetchType.LAZY, optional = false)
-    private Collaborator collaborator;
-	
-	@OneToOne(mappedBy = "address", cascade = CascadeType.ALL, 
-            fetch = FetchType.LAZY, optional = false)
-    private Sponsor sponsor;
-	
-	
 	public Doctor getDoctor() {
 		return doctor;
 	}
@@ -40,18 +31,7 @@ public class Address {
 	public void setPatient(Patient patient) {
 		this.patient = patient;
 	}
-	public Collaborator getCollaborator() {
-		return collaborator;
-	}
-	public void setCollaborator(Collaborator collaborator) {
-		this.collaborator = collaborator;
-	}
-	public Sponsor getSponsor() {
-		return sponsor;
-	}
-	public void setSponsor(Sponsor sponsor) {
-		this.sponsor = sponsor;
-	}
+	
 	public int getId() {
 		return id;
 	}

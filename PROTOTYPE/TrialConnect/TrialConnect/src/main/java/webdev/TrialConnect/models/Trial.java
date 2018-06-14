@@ -1,19 +1,13 @@
 package webdev.TrialConnect.models;
 import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 
 @Entity
 public class Trial {
 	
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -31,26 +25,7 @@ public class Trial {
 	private String exclusionCriteria;
 	private int contactInfo;
 	
-	@ManyToOne
-	@JsonIgnore
-	private Sponsor sponsor;
-	
-	@ManyToOne
-	@JsonIgnore
-	private Collaborator collaborator;
-	
-	public Collaborator getCollaborator() {
-		return collaborator;
-	}
-	public void setCollaborator(Collaborator collaborator) {
-		this.collaborator = collaborator;
-	}
-	public Sponsor getSponsor() {
-		return sponsor;
-	}
-	public void setSponsor(Sponsor sponsor) {
-		this.sponsor = sponsor;
-	}
+
 	public int getId() {
 		return id;
 	}
