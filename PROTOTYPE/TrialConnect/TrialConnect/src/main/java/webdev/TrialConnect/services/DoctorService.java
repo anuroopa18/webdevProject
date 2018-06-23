@@ -32,6 +32,15 @@ public class DoctorService {
 		return (List<Doctor>) doctorRepository.findAll();
 	}
 	
+	@PostMapping("/api/findDoctorByCredentials/doctor")
+	public Doctor findDoctorByCredentials(@RequestBody Doctor doctor) {
+		Optional<Doctor> data = doctorRepository.findUserByCredentials(doctor.getUsername(),doctor.getPassword());
+		if(data.isPresent()) {
+			return data.get();
+		}
+		return null;
+	}
+	
 	@GetMapping("/api/doctor/{id}")
 	public Doctor findDoctorById(@PathVariable("id") int did) {
 		Optional<Doctor> data = doctorRepository.findById(did);

@@ -47,7 +47,7 @@ public class TrialService {
 		trialRepository.deleteById(tid);
 	}
 	
-	@PutMapping("/api/patient/{id}")
+	@PutMapping("/api/trial/{id}")
 	public Trial updateTrial(@PathVariable("id") int tid, @RequestBody Trial newTrial) {
 		Optional<Trial> data = trialRepository.findById(tid);
 		if(data.isPresent()) {
