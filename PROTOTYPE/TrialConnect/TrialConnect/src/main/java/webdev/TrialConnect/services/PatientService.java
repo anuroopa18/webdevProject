@@ -30,6 +30,15 @@ public class PatientService {
 		return (List<Patient>) patientRepository.findAll();
 	}
 	
+	@GetMapping("/api/findPatient/{username}")
+	public Patient findPatientByUsername(@PathVariable("username") String username) {
+		Optional<Patient> data = patientRepository.findUserByUsername(username);
+		if(data.isPresent()) {
+			return data.get();
+		}
+		return null;
+	}
+	
 	@PostMapping("/api/findPatientByCredentials/patient")
 	public Patient findPatientByCredentials(@RequestBody Patient patient) {
 		Optional<Patient> data = patientRepository.findUserByCredentials(patient.getUsername(),patient.getPassword());
@@ -82,12 +91,8 @@ public class PatientService {
 			if(newPatient.getDoctors()!= null ) {
 				patient.setDoctors(newPatient.getDoctors());
 			}
-			
-			if(newPatient.getUsername()!= null && !newPatient.getUsername().equals("") ) {
-				patient.setUsername(newPatient.getUsername());
-			}
-			
-			return newPatient;
+			patientRepository.save(patient);
+			return patient;
 		}
 		return null;
 	}

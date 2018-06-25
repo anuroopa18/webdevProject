@@ -85,11 +85,9 @@ public class DoctorService {
 			if(newDoctor.getSpecialization()!= null && !newDoctor.getSpecialization().equals("") ) {
 				doctor.setSpecialization(newDoctor.getSpecialization());
 			}
-			if(newDoctor.getUsername()!= null && !newDoctor.getUsername().equals("") ) {
-				doctor.setUsername(newDoctor.getUsername());
-			}
-			
-			return newDoctor;
+			 
+			doctorRepository.save(doctor);
+			return doctor;
 		}
 		return null;
 	}

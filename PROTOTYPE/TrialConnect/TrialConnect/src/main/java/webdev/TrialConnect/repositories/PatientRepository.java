@@ -10,6 +10,10 @@ import webdev.TrialConnect.models.Patient;
 
 public interface PatientRepository extends CrudRepository<Patient, Integer> {
 	
+	@Query("SELECT p FROM Patient p WHERE p.username=:username")
+	Optional<Patient> findUserByUsername(@Param("username") String username);
+	
+	
 	@Query("SELECT p FROM Patient p WHERE p.username=:username AND p.password=:password")
 	Optional<Patient> findUserByCredentials(
 		@Param("username") String username, 
